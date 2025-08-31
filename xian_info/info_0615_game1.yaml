@@ -1,0 +1,101 @@
+CAMERAS:
+  - START: 127
+    END: 1000
+    Src_Point: [[1350, 183], [40, 221], [2232, 429], [84, 583]]
+    Dst_Point: [[25, 140], [25, 688], [574, 140], [574, 688]]
+    W: 2246
+    H: 590
+    PATH:
+      ORI_Video: "/data/Projects/football/xian/with_mask/0615_prac_mask/0615_game1_l_mask.mp4"
+      JSON: "/data/Projects/football/xian/yoloV7/0615_prac/0615_game1_l/0615_game1_l_mask.json"
+      MASK: "./images/xian/0615/0615_left_mask.jpg"
+  - START: 127
+    END: 1000
+    Src_Point: [[714, 172], [1920, 181], [0, 397], [1908, 472]]
+    Dst_Point: [[1123, 139], [1123, 689], [574, 140], [574, 688]]
+    W: 1958
+    H: 486
+    PATH:
+      ORI_Video: "/data/Projects/football/xian/with_mask/0615_prac_mask/0615_game1_r_mask.mp4"
+      JSON: "/data/Projects/football/xian/yoloV7/0615_prac/0615_game1_r/0615_game1_r_mask.json"
+      MASK: "./images/xian/0615/0615_right_mask.jpg"
+
+RUN: 600
+
+OUT_VIDEO:
+  FPS: 30
+  ROOT: './video/xian/0615'
+  FILENAME: 'output_0615_game1_hsv.mp4'
+  W: 4500
+  H: 2000
+
+PUT_POSITION:
+  IMGS:
+    x: [0, 2250]
+    y: [0, 0]
+  FIELD:
+    x: 500
+    y: 620
+  DATA:
+    Ball:
+      x: 2200
+      y: 620
+    Speed:
+      x: 2200
+      y: 1320
+
+
+REID:
+  ModelName: 'osnet_x1_0'
+  NUM_Class: 3
+  Pretrain: './REID/weights/xiandataset/model.pth.tar-150'
+
+LEN:
+  RecordRange: 20
+  PlayerTraceMax: 10
+  BallTraceMax: 10
+
+FIELD:
+  ORI:
+    W: 30
+    H: 15
+  STRATEGY:
+    W: 1100
+    H: 550
+    PATH: './images/xian/football_xian_field.png'
+
+RECORD:
+  ROOT:
+  SAVENAME:
+  CHECKFILE:
+
+THRESHOLD:
+  Person: 0.3
+  Ball: 0.45
+  Same_Person_distance: 30
+
+GROUP:
+  TEAM1:
+    Label: [0]
+    Color: 0,0,255
+  TEAM2:
+    Label: [1]
+    Color: 0,255,255
+
+MaxPlayerCount: 8
+
+KmeansData_folder: './kmeans_fit_data_0615(R&O)'
+
+CHECKFRAME:
+  ROOT: './check_frame_0615game1'
+
+
+
+
+
+
+
+
+
+
+

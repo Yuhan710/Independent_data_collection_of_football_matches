@@ -1,0 +1,93 @@
+
+CAMERAS:
+- START: 0
+  END: 600
+  Src_Point: [[1350, 183], [40, 221], [2232, 429], [84, 583]]
+  Dst_Point: [[25, 140], [25, 688], [574, 140], [574, 688]]
+  W: 2246
+  H: 590
+  PATH:
+    ORI_Video: '/data/Projects/football/xian/with_mask/0615_prac_mask/0615_02_l_mask.mp4'
+    JSON: '/data/Projects/football/xian/yoloV7/0615_prac/0615_02_l/0615_02_l_mask.json'
+    MASK: './images/xian/0615/0615_left_roi_mask.jpg'
+- START: 0
+  END: 600
+  Src_Point: [[714, 172], [1920, 181], [0, 397], [1908, 472]]
+  Dst_Point: [[1123, 139], [1123, 689], [574, 140], [574, 688]]
+  W: 1958
+  H: 486
+  PATH:
+    ORI_Video: '/data/Projects/football/xian/with_mask/0615_prac_mask/0615_02_r_mask.mp4'
+    JSON: '/data/Projects/football/xian/yoloV7/0615_prac/0615_02_r2/0615_02_r_mask.json'
+    MASK: './images/xian/0615/0615_right_roi_mask.jpg'
+
+RUN: 600
+
+OUT_VIDEO:
+  FPS: 30
+  ROOT: './video/xian/0615'
+  FILENAME: 'output_0615_02_2-2_roi_from0_v2.mp4'
+  W: 4500
+  H: 1500
+
+
+PUT_POSITION:
+  IMGS:
+    x: [0, 2246]
+    y: [0, 0]
+  FIELD:
+    x: 1552
+    y: 620
+
+REID:
+  ModelName: 'osnet_x1_0'
+  NUM_Class: 10
+  Pretrain: './REID/weights/TaiyuanAndXian/model.pth.tar-150'
+
+LEN:
+  RecordRange: 10
+  PlayerTraceMax: 10
+  BallTraceMax: 10
+
+FIELD:
+  ORI:
+    W: 30
+    H: 15
+  STRATEGY:
+    W: 1100
+    H: 550
+    PATH: './images/xian/football_xian_field.png'
+
+RECORD:
+  ROOT: './record/xian'
+  SAVENAME: '20240615_record.txt'
+
+THRESHOLD:
+  Person: 0.7
+  Ball:
+  Same_Person_distance: 30
+
+GROUP:
+  TEAM1:
+    Label: [0, 3, 5, 9, 8]
+    Color: 0,255,255
+  TEAM2:
+    Label: [1, 2, 4, 6, 7]
+    Color: 0,0,255
+
+MaxPlayerCount: 3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

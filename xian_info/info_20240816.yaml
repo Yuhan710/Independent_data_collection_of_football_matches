@@ -1,0 +1,107 @@
+CAMERAS:
+  - START: 721
+    END: 1320
+    Src_Point: [[1349, 197], [36, 248], [2231, 441], [86, 611]]
+    Dst_Point: [[25, 140], [25, 688], [575, 140], [575, 688]]
+    W: 2436
+    H: 1114
+    PATH:
+      ORI_Video: "/data/Projects/football/xian_3camera/Game_video_with_mask/20240816/20240816_1.mp4"
+      JSON: "/data/Projects/football/xian_3camera/YOLOv7_PredResult/20240816/20240816_1.json"
+      MASK: "./images/xian/0816/20240816_1_mask.png"
+  - START: 666
+    END: 1265
+    Src_Point: [[37, 237], [70, 361], [1970, 240], [745, 312], [1497, 269], [1459, 1075]]
+    Dst_Point: [[1123, 140], [575, 140], [575, 688], [575, 309], [575, 520], [26, 214]]
+    W: 2516
+    H: 1156
+    PATH:
+      ORI_Video: "/data/Projects/football/xian_3camera/Game_video_with_mask/20240816/20240816_2.mp4"
+      JSON: "/data/Projects/football/xian_3camera/YOLOv7_PredResult/20240816/20240816_2.json"
+      MASK: "./images/xian/0816/20240816_2_mask.png"
+  - START: 330
+    END: 929
+    Src_Point: [[466, 378], [931, 404], [1685, 449], [2360, 479], [1181, 166], [2380, 192]]
+    Dst_Point: [[575, 140], [575, 309], [575, 520], [575, 688], [1123, 140], [1123, 688]]
+    W: 2392
+    H: 1078
+    PATH:
+      ORI_Video: "/data/Projects/football/xian_3camera/Game_video_with_mask/20240816/20240816_3.mp4"
+      JSON: "/data/Projects/football/xian_3camera/YOLOv7_PredResult/20240816/20240816_3.json"
+      MASK: "./images/xian/0816/20240816_3_mask.png"
+
+RUN: 2400
+
+OUT_VIDEO:
+  FPS: 60
+  ROOT: './video/xian/0816'
+  FILENAME: '20240816_2400f.mp4'
+  W: 6100
+  H: 2650
+
+PUT_POSITION:
+  IMGS:
+    x: [0, 2586, 0]
+    y: [0, 0, 1150]
+  FIELD:
+    x: 2586
+    y: 1350
+  DATA:
+    Ball:
+      x: 3850
+      y: 1350
+    Speed:
+      x: 3850
+      y: 2040
+
+REID:
+  ModelName: 'osnet_x1_0'
+  NUM_Class: 3
+  Pretrain: './REID/weights/xiandataset/model.pth.tar-150'
+
+LEN:
+  RecordRange: 20
+  PlayerTraceMax: 10
+  BallTraceMax: 15
+
+FIELD:
+  ORI:
+    W: 30
+    H: 15
+  STRATEGY:
+    W: 1100
+    H: 550
+    PATH: './images/xian/football_xian_field.png'
+
+RECORD:
+  ROOT:
+  SAVENAME:
+  CHECKFILE: '20240816_3cam_data.csv'
+
+THRESHOLD:
+  Person: 0.55
+  Ball: 0.45
+  Same_Person_distance: 30
+
+GROUP:
+  TEAM1:
+    Label: [0]
+    Color: 0,0,255
+  TEAM2:
+    Label: [1]
+    Color: 0,255,255
+
+MaxPlayerCount: 11
+
+KmeansData_folder: './kmeans_fit_data(R&Y)'
+
+CHECKFRAME:
+  ROOT: './check_frame'
+
+
+
+
+
+
+
+

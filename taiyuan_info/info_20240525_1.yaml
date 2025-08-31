@@ -1,0 +1,145 @@
+CAMERAS:
+- START: 0
+  END: 1000
+  Src_Point: [[33,148],[67,208],[132,314],[601,1123],[3676,185],[2921,149],[2508,128],[2562,192],[2047,154],[1685,128],[1463,114],[1617,88]]
+  Dst_Point: [[575,755],[575,506],[575,324],[575,75],[50,75],[50,213],[50,323],[215,213],[215,342],[215,488],[215,617],[50,755]]
+  W: 3744
+  H: 1188
+  PATH:
+    ORI_Video: '/data/Projects/football/Tony/Game_video_with_mask/Mulan_League/20240525/20240525_Upper_Left_1.mp4'
+    JSON: '/data/Projects/football/Tony/YOLOv7_PredResult_With_PlaygroundRefreeCorner/20240525/20240525_Upper_Left_1.json'
+    MASK: './images/Taiyuan/0525/20240525_mask_UL_1.png'
+- START: 0
+  END: 1000
+  Src_Point: [[3559,101],[3571,163],[3594,277],[3783,1318],[11,253],[777,188],[1191,153],[2046,85],[1160,223],[1666,167],[2002,130],[2211,107]]
+  Dst_Point: [[575,755],[575,506],[575,324],[575,75],[1100,75],[1100,213],[1100,323],[1100,755],[935,213],[935,342],[935,488],[935,617]]
+  W: 3824
+  H: 1386
+  PATH:
+    ORI_Video: '/data/Projects/football/Tony/Game_video_with_mask/Mulan_League/20240525/20240525_Upper_Right_1.mp4'
+    JSON: '/data/Projects/football/Tony/YOLOv7_PredResult_With_PlaygroundRefreeCorner/20240525/20240525_Upper_Right_1.json'
+    MASK: './images/Taiyuan/0525/20240525_mask_UR_1.png'
+- START: 0
+  END: 1000
+  Src_Point: [[31,185],[144,232],[341,319],[2449,1283],[909,133],[1150,141],[1523,157],[2109,189],[871,250],[3732,19],[2577,36],[2075,45],[1671,51]]
+  Dst_Point: [[50,75],[50,323],[50,507],[50,755],[215,213],[215,342],[215,488],[215,617],[105,507],[575,755],[575,506],[575,324],[575,75]]
+  W: 3778
+  H: 1420
+  PATH:
+    ORI_Video: '/data/Projects/football/Tony/Game_video_with_mask/Mulan_League/20240525/20240525_Lower_Left_1.mp4'
+    JSON: '/data/Projects/football/Tony/YOLOv7_PredResult_With_PlaygroundRefreeCorner/20240525/20240525_Lower_Left_1.json'
+    MASK: './images/Taiyuan/0525/20240525_mask_LL_1.png'
+- START: 0
+  END: 1000
+  Src_Point: [[3632,132],[3551,188],[3413,288],[3215,433],[2174,1200],[3200,183],[2919,265],[2614,183],[2281,230],[1766,307],[63,276],[1197,196],[1697,163],[2081,138]]
+  Dst_Point: [[1100,75], [1100,323],[1100,507],[1100,617],[1100,755],[1045,323],[1045,507],[935,342],[935,488],[935,617],[575,755],[575,506],[575,324],[575,75]]
+  W: 3804
+  H: 1364
+  PATH:
+    ORI_Video: '/data/Projects/football/Tony/Game_video_with_mask/Mulan_League/20240525/20240525_Lower_Right_1.mp4'
+    JSON: '/data/Projects/football/Tony/YOLOv7_PredResult_With_PlaygroundRefreeCorner/20240525/20240525_Lower_Right_1.json'
+    MASK: './images/Taiyuan/0525/20240525_mask_LR_1.png'
+
+RUN: 1000
+
+OUT_VIDEO:
+  FPS: 30
+  ROOT: './video/Taiyuan/0525'
+  FILENAME: 'connect_0525_test.mp4'
+  W: 7750
+  H: 4500
+
+
+PUT_POSITION:
+  IMGS:
+    x: [0, 3778, 0, 3778]
+    y: [0, 0, 1386, 1386]
+  FIELD:
+    x: 3231
+    y: 2856
+  DATA:
+    Ball:
+      x: 3750
+      y: 1350
+    Speed:
+      x: 3750
+      y: 1650
+# REID:
+#   ModelName: 'osnet_x1_0'
+#   NUM_Class: 9
+#   Pretrain: './REID/weights/newdataset_addTaiyuan0525/model.pth.tar-150'
+
+REID:
+  ModelName: 'osnet_x1_0'
+  NUM_Class: 10
+  Pretrain: './REID/weights/TaiyuanAndXian/model.pth.tar-150'
+
+LEN:
+  RecordRange: 10
+  PlayerTraceMax: 10
+
+FIELD:
+  ORI:
+    W: 105
+    H: 68
+  STRATEGY:
+    W: 1050
+    H: 680
+    PATH: './images/Taiyuan/football_field.png'
+
+RECORD:
+  ROOT: './record/Taiyuan'
+  SAVENAME: '20240525_record.txt'
+  CHECKFILE: '20240525_taiyuan.csv'
+
+THRESHOLD:
+  Person: 0.7
+  Ball:
+  Same_Person_distance: 30
+
+GROUP:
+  TEAM1:
+    Label: [0, 3, 5, 8]
+    Color: 255,0,0
+  TEAM2:
+    Label: [1, 2, 4, 6, 7]
+    Color: 0,0,255
+
+MaxPlayerCount: 22
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

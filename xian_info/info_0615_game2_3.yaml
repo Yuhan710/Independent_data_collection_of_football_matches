@@ -1,0 +1,67 @@
+
+
+CAMERA:
+  Left:
+    h: 590
+    w: 2246
+  Right:
+    h: 486
+    w: 1944
+
+PATH:
+  left_video: '/data/Projects/football/xian/with_mask/0615_shoot_mask/0615_game2_3_l_mask.mp4'
+  left_mask: './image/0615_left_mask.jpg'
+  left_json: '/data/Projects/football/xian/yoloV7/0615_shoot/0615_game2_3_l/0615_game2_3_l_mask.json'
+  right_video: '/data/Projects/football/xian/with_mask/0615_shoot_mask/0615_game2_3_r_mask.mp4'
+  right_mask: './image/0615_right_mask.jpg'
+  right_json: '/data/Projects/football/xian/yoloV7/0615_shoot/0615_game2_3_r/0615_game2_3_r_manual2.json'
+
+  field: './image/football_xian_field.png'
+
+  REID_Pretrain: './deep_person_reid/log/osnet_x1_0_batch32_newdataset_add_xian/model/model.pth.tar-10'
+
+ModelName: 'osnet_x1_0'
+NUM_Class: 10
+
+
+FRAME:
+  left_start: 0
+  left_end: 170
+  right_start: 0
+  right_end: 170
+
+THRESH: 
+  map_distance: 60
+
+CONF:
+  person: 0.4
+  ball: 0.8
+
+COOD:
+  left_src: [[1350, 183], [40, 221], [2232, 429], [84, 583]]
+  left_dst: [[25, 140], [25, 688], [574, 140], [574, 688]]
+
+  right_src: [[714, 172], [1920, 181], [0, 397], [1908, 472]]
+  right_dst: [[1123, 139], [1123, 689], [574, 140], [574, 688]]
+
+TRACE:
+  person_length_max: 50
+
+TEXT:
+  check_offset_x: 400
+  check_offset_y: 510
+
+OUT_VIDEO:
+  w: 4500
+  h: 1500
+  root: './video/xian/0615_game2'
+  write: './video/xian/0615_game2/output_0615_game2_3_manual3.mp4'
+
+
+
+
+
+
+
+
+

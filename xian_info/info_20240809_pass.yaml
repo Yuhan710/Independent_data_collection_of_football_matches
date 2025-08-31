@@ -1,0 +1,108 @@
+
+CAMERAS:
+- START: 0
+  END: 590
+  Src_Point: [[1345, 185], [31, 233], [2238, 433], [76, 600]]
+  Dst_Point: [[25, 140], [25, 688], [574, 140], [574, 688]]
+  W: 2274
+  H: 614
+  PATH:
+    ORI_Video: '/data/Projects/football/xian/with_mask/0809_pass_mask/pass_01_l_mask.mp4'
+    JSON: '/data/Projects/football/xian/yoloV7/0809_pass/pass_01_l/pass_01_l_mask.json'
+    MASK: './images/xian/0809_pass/0809_left_mask.png'
+- START: 0
+  END: 590
+  Src_Point: [[724, 165], [1924, 191], [9, 377], [1915, 486]]
+  Dst_Point: [[1123, 139], [1123, 689], [574, 140], [574, 688]]
+  W: 1962
+  H: 494
+  PATH:
+    ORI_Video: '/data/Projects/football/xian/with_mask/0809_pass_mask/pass_01_r_mask.mp4'
+    JSON: '/data/Projects/football/xian/yoloV7/0809_pass/pass_01_r/pass_01_r_mask.json'
+    MASK: './images/xian/0809_pass/0809_right_mask.png'
+
+RUN: 600
+
+OUT_VIDEO:
+  FPS: 30
+  ROOT: './video/xian/0809_pass'
+  FILENAME: 'output_pass_01_smooth_test.mp4'
+  W: 4500
+  H: 1500
+
+
+PUT_POSITION:
+  IMGS:
+    x: [0, 2274]
+    y: [0, 0]
+  FIELD:
+    x: 500
+    y: 620
+  DATA:
+    Ball:
+      x: 3750
+      y: 1350
+    Speed:
+      x: 2490
+      y: 820
+
+REID:
+  ModelName: 'osnet_x1_0'
+  NUM_Class: 10
+  Pretrain: './REID/weights/TaiyuanAndXian/model.pth.tar-150'
+
+LEN:
+  RecordRange: 20
+  PlayerTraceMax: 10
+  BallTraceMax: 10
+
+FIELD:
+  ORI:
+    W: 30
+    H: 15
+  STRATEGY:
+    W: 1100
+    H: 550
+    PATH: './images/xian/football_xian_field.png'
+
+RECORD:
+  ROOT: './record/xian'
+  SAVENAME: '20240809_pass_record.txt'
+  CHECKFILE: '20240809_pass_record.csv'
+
+THRESHOLD:
+  Person: 0.4
+  Ball: 0.5
+  Same_Person_distance: 30
+
+GROUP:
+  TEAM1:
+    Label: [0]
+    Color: 0,0,255
+  TEAM2:
+    Label: [1]
+    Color: 255,255,255
+
+MaxPlayerCount: 10
+
+KmeansData_folder: './kmeans_fit_data(R&W)'
+
+CHECKFRAME:
+  ROOT: './check_frame_0809pass'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
