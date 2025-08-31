@@ -30,7 +30,7 @@ python3 main.py --config xian_info/info_0615_game1.yaml
 1. 人物分隊
   - 利用人的座標點，擷取出人物身上穿的球衣部分，在HSV色彩空間分群結果最為精確，於是將截取出的球衣部分轉換成HSV色彩空間，並對此區塊做白平衡處理，可以減少光照對顏色變化的影響，再採用K-means Clustering 進行分群，得到該球員之隊伍，區分出場上比賽球員的所屬隊伍
     
-    <img src="/readmeimages/addWB.png" alt="分隊預處理" width="400">   <img src="/readmeimages/kmeans.png" alt="以K-means Clustering 分群之分布結果" width="500"> 
+    <img src="/readmeimages/addWB.png" alt="分隊預處理" width="400">  <img src="/readmeimages/kmeans.png" alt="以K-means Clustering 分群之分布結果" width="500"> 
 
 2. 物件追蹤
   - 需要做追蹤的物件有球員與球。在球員匹配演算法中，有分為追蹤到的球員(有固定數量)以及在深度學習偵測到的球員，追蹤球員會與偵測球員互相匹配，以偵測到的球員資訊去更新追蹤球員資訊。偵測到的球
